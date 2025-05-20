@@ -1,0 +1,863 @@
+
+.container {
+  display: grid;
+  grid-template-rows: repeat(100, 1fr);
+  grid-template-columns: repeat(100, 1fr);
+  width: 75%;
+  min-width: 490px;
+  height: 100vh;
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* .blur {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: transparent;
+  backdrop-filter: blur(2px);
+  z-index: 0;
+} */
+
+.header {
+  grid-area: 1 / 1 / 14 / 101;
+  align-items: center;
+  min-height: 95px;
+  max-height: 95px;
+}
+
+.logo {
+  grid-area: 1 / 2 / 14 / 12;
+  z-index: 1;
+
+  background: url(/static/LogoAKK.png) no-repeat center;
+  background-size: contain;
+  min-width: 85px;
+  max-width: 85px;
+  min-height: 96px;
+  max-height: 96px;
+  width: auto;
+  height: auto;
+}
+
+.menu-bar {
+  grid-area:  1 / 73 / 14 / 100;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+  background: transparent;
+  border-radius: 12px;
+  min-width: 296px;
+  min-height: 35px;
+  max-height: 35px;
+  margin-top: 30px;
+  width: auto;
+  height: auto;
+  white-space: nowrap;
+  background-color: rgba(255, 255, 255, 0.05  );
+  backdrop-filter: blur(10px);
+}
+
+.menu-menu {
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  text-decoration: none;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+  padding: 8px 0;
+}
+
+/* Sliding bar */
+.bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 25%;
+  background: linear-gradient(to right, rgb(124, 28, 60), rgb(211, 49, 103));
+  border-radius: 10px;
+  border-width: 1px;
+  z-index: 1;
+  transition: left 0.4s ease;
+  left: 0%;
+  
+}
+
+/* Hover effects */
+.menu-bar:hover .bar {
+  transition: left 0.4s ease;
+}
+.menu-menu:nth-child(1):hover ~ .bar { left: 0%; }
+.menu-menu:nth-child(2):hover ~ .bar { left: 25%; }
+.menu-menu:nth-child(3):hover ~ .bar { left: 50%; }
+.menu-menu:nth-child(4):hover ~ .bar { left: 75%; }
+
+/* NEW: Target styles that match your HTML structure */
+#hello:target ~ .container .menu-bar .bar,
+#about:target ~ .container .menu-bar .bar,
+#projects:target ~ .container .menu-bar .bar,
+#contact:target ~ .container .menu-bar .bar,
+.menu-bar:not(:hover) .bar:not(.active) {
+  transition: left 0.4s ease;
+}
+
+#hello:target ~ .container .menu-bar .bar {
+  left: 0%;
+}
+#about:target ~ .container .menu-bar .bar {
+  left: 25%;
+}
+#projects:target ~ .container .menu-bar .bar {
+  left: 50%;
+}
+#contact:target ~ .container .menu-bar .bar {
+  left: 75%;
+}
+
+/* Bar position for each page - NO TRANSITION */
+.page-home .menu-bar .bar {
+  left: 0%;
+  transition: none;
+}
+.page-about .menu-bar .bar {
+  left: 25%;
+  transition: none;
+}
+.page-projects .menu-bar .bar {
+  left: 50%;
+  transition: none;
+}
+.page-contact .menu-bar .bar {
+  left: 75%;
+  transition: none;
+}
+
+/* Hover animation still works */
+.menu-bar:hover .bar {
+  transition: left 0.3s ease;
+}
+.menu-menu:nth-child(1):hover ~ .bar { left: 0%; }
+.menu-menu:nth-child(2):hover ~ .bar { left: 25%; }
+.menu-menu:nth-child(3):hover ~ .bar { left: 50%; }
+.menu-menu:nth-child(4):hover ~ .bar { left: 75%; }
+
+
+/*          Hello Menu          */
+.content {
+  grid-area: 1 / 1 / 101 / 101;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: repeat(25,1fr);
+  grid-template-rows: repeat(30,1fr);
+  position: relative;
+}
+
+.content-2s {
+    grid-area: 13 / 1 / 17 / 26 ;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: repeat(31, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    color: white;
+    min-height: 120px;
+    max-height: 120px;
+  }
+
+  .content-21 {
+    grid-area: 2 / 1 / 5 / 32;
+    z-index: 2;
+    
+    text-align: center;
+    font-family: 'leckerLiOne', cursive;
+    font-size: 24px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    min-height: 38px;
+    max-height: 38px;
+  }
+  
+  /* Mirror your .greeting and .name animation style */
+  .mejuah {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlideIn 0.8s ease-out forwards 0.2s, dimText 2s ease forwards 3s;
+    margin-right: -0.3em;
+  }
+  
+  .dash {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlideIn 0.6s ease-out forwards 0.6s, dimText 2s ease forwards 3s;
+    margin-right: -0.3em;
+  }
+  
+  .juah {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlideIn 0.8s ease-out forwards 1s, dimText 2s ease forwards 3s;
+    margin-right: -0.5em;
+  }
+  
+  .excl {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeSlideIn 0.6s ease-out forwards 1.5s, dimText 2s ease forwards 3s;
+  }
+  
+
+.content-22 {
+  grid-area: 4 / 1 / 9 / 32;
+  z-index: 1;
+
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 45px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  min-height: 72px;
+  max-height: 80px;
+}
+
+.greeting {
+  opacity: 0;
+  transform: translateY(20px); /* Starts slightly below */
+  animation: 
+    fadeSlideIn 1.5s ease-out forwards 2.1s;
+}
+
+.name {
+  opacity: 0;
+  transform: translateY(40px);
+  background: linear-gradient(to right, rgb(255, 57, 123), transparent, rgb(255, 57, 123));
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: 
+    fadeSlideIn 2s ease-out forwards 3.1s,
+    gradientFlow 4s linear infinite -0.2s;
+}
+
+.content-23, .content-24 {
+  opacity: 0;
+  transform: scale(0.8) translateY(40px);
+  animation: popfrombelow 1s ease-out forwards;
+  animation-fill-mode: both;
+}
+
+.content-23 {
+  grid-area: 1 / 8 / 3 / 12;
+  text-align: center;
+  z-index: 3;
+  
+  color: rgba(255, 255, 255, 0.486);
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  --rotate: -25deg;
+  transform: scale(0.8) translateY(20px) rotate(var(--rotate));
+  animation-delay: 5s;
+  animation-duration: 0.7s;
+  animation-iteration-count: 2; 
+  animation-direction: alternate;
+}
+
+.content-24 {
+  grid-area: 1 / 21 / 3 / 25;
+  z-index: 3;
+  text-align: center;
+
+  color: rgba(255, 255, 255, 0.486);
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  --rotate: 25deg;
+  transform: scale(0.8) translateY(20px) rotate(var(--rotate));
+  animation-delay: 5.3s;
+  animation-duration: 0.7s;
+  animation-iteration-count: 2; 
+  animation-direction: alternate;
+}
+
+
+.video {
+  grid-area: 4 / 1 / 31 / -1;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+  filter: opacity(90%);
+  position: relative;
+  filter: opacity(95%);
+  gap: 0;
+  
+}
+
+/* Video player styles */
+.contactvideoplayer,
+.contactvideoplayer-blur, .boxforicons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  opacity: 0;
+  animation: fadeInScale 2s ease forwards;
+}
+
+.boxforicons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 16 / 9;
+  height: 81vh;
+  width: 45.6vh;
+  touch-action: manipulation;
+  object-fit: contain;
+  border-radius: 45px;
+  opacity: 1; /* Ensure it's visible */
+  animation: fadeInScale 2s ease forwards; /* Keep fadeInScale animation */
+  animation-fill-mode: forwards; /* Retain final state */
+  transition: backdrop-filter 0.6s ease; /* Smooth transition for hover */
+  z-index: 4; /* Ensure it appears above blur-overlay */
+  pointer-events: auto; /* Allow hover events */
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.boxforicons:hover {
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+.contactvideoplayer {
+  z-index: 2;
+  max-width: 90%;
+  max-height: 90%;
+  animation-delay: 0s;
+  border-radius: 50px;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  
+}
+
+.contactvideoplayer-blur {
+  z-index: 1;
+  max-width: 94%;
+  max-height: 94%;
+  filter: blur(5px) brightness(0.4) contrast(1.8);
+  animation-delay: 0s;
+  border-radius: 50px;
+  opacity: 1;
+}
+
+.social-icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(4.5vh);
+  opacity: 0; /* Initially hidden */
+  pointer-events: none; /* Prevent interaction until visible */
+  z-index: 5; /* Ensure it appears above boxforicons */
+  animation: fadeInIcons 1s ease forwards 39.5s; /* Fade in after 2.5s */
+  animation-fill-mode: forwards; /* Retain final state */
+  transition: opacity 0.6s ease; /* Smooth fade-in/out */
+}
+.social-logo {
+  width: calc(5vh);   
+  height: calc(5vh);  
+  gap: calc(2vh); 
+  min-width: 5px;
+  min-height: 5px;
+  max-width: 40px;
+  max-height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.social-logo:hover {
+  transform: scale(1.2);
+}
+
+/* Change these selectors from .video:hover to .boxforicons:hover */
+.boxforicons:hover .contactvideoplayer {
+  opacity: 0;
+}
+
+.boxforicons:hover .social-icons {
+  opacity: 1; /* Show icons on hover */
+  pointer-events: auto; /* Allow interaction */
+}
+
+.boxforicons:hover {
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.blur-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 16 / 9;
+  height: 81vh;
+  width: 45.6vh;
+  touch-action: manipulation;
+  object-fit: contain;
+  border-radius: 45px;
+  opacity: 0; /* Initially hidden */
+  animation: fadeInScale 2s ease forwards, blurEffect 2s ease 39s forwards; /* Combine scale and blur */
+  animation-fill-mode: forwards; /* Retain final state */
+  transition: backdrop-filter 0.6s ease; /* Smooth transition for hover */
+  z-index: 3; /* Ensure it appears above videos but below boxforicons */
+  pointer-events: none; /* Prevent interaction */
+  background: transparent; /* Make it invisible but clickable */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.photome {
+  z-index: 0;
+  scale: 1.1;
+  grid-area: 12 / 1 / -1 / 31;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  background-image: url('/static/PP.png');
+  background-size: 50vh;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+.text1 {
+  grid-area: 14 / 1 / 17 / -1;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 4.9vh;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: rgb(255, 57, 123);
+  padding-bottom: 8px;
+}
+
+.text1 .quote {
+  color: rgb(255, 202, 221); /* Solid color for the quotation marks */
+}
+
+.text2 {
+  grid-area: 11 / 1 / 16 / -1;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  text-align: center;
+  font-family: 'leckerLiOne';
+  font-size: 3.5vh;
+  letter-spacing: 1px;
+  color: white;
+  margin-right: 41vh;
+  padding-bottom: 24px;
+}
+
+.text3 {
+  grid-area: 16 / 1 / 19 / -1;
+  z-index: 1;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8vh;
+  letter-spacing: 1px;
+  color: #E0E6EA;
+  line-height: 1.2;
+  font-style: italic;
+  padding-top: 20px;
+}
+
+.text3 .highlight {
+  color: rgb(255, 57, 123); /* Apply the specific color to "love" */
+  font-weight: bold; /* Optional: Make it bold */
+}
+
+.text4box {
+  grid-area: 18 / 1 / 26 / 13;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  text-align: start;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2px, 1.7vh, 11px); /* Dynamically adjust font size based on vertical height */
+  letter-spacing: 1px;
+  color: rgb(225, 225, 225);
+  position: relative; /* Required for pseudo-element positioning */
+  width: 100%; /* Ensure the box takes the full grid width */
+  max-width: 100%; /* Prevent the box from exceeding the grid */
+  height: auto; /* Allow the height to adjust dynamically */
+  overflow-wrap: break-word; /* Break long words to prevent overflow */
+  word-wrap: break-word; /* Ensure compatibility */
+  white-space: normal; /* Allow text to wrap inside the box */
+  overflow: hidden; /* Hide any overflowing content */
+  font-style: italic;
+  text-decoration: overline;
+  text-decoration-color: steelblue; /* Underline color */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  place-items: end start;
+}
+
+.text5box {
+  grid-area: 18 / -1 / 26 / -13;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  z-index: 1;
+  justify-content: start; /* Align text to the left */
+  text-align: end;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2px, 1.7vh, 11px); /* Dynamically adjust font size */
+  letter-spacing: 1px;
+  color: rgb(225, 225, 225);
+  position: relative; /* Required for pseudo-element positioning */
+  width: 100%; /* Ensure the box takes the full grid width */
+  max-width: 100%; /* Prevent the box from exceeding the grid */
+  height: auto; /* Allow the height to adjust dynamically */
+  overflow-wrap: break-word; /* Break long words to prevent overflow */
+  word-wrap: break-word; /* Ensure compatibility */
+  white-space: normal; /* Allow text to wrap inside the box */
+  overflow: hidden; /* Hide any overflowing content */
+  font-style: italic;
+  text-decoration: underline;
+  text-decoration-color: steelblue; /* Underline color */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  place-items: end start;
+  
+}
+
+.text4 {
+  grid-area: 4 / 1 / 6 / 6; /* Place .text5 in the first cell of the grid */
+  justify-self: end;
+  align-self: end;
+  margin-bottom: 30px;
+  margin-right: 36px;
+  margin-left: 10px;
+  backdrop-filter: blur(2px);
+}
+
+.text5 {
+  grid-area: 4 / 1 / 6 / 6; /* Place .text5 in the first cell of the grid */
+  justify-self: start; /* Stretch horizontally to fill the grid cell */
+  align-self: end; /* Stretch vertically to fill the grid cell */
+  margin-bottom: 30px;
+  margin-left: 30px;
+  margin-right: 10px;
+  backdrop-filter: blur(2px);
+}
+
+.text6box {
+  grid-area: 6 / 1 / 10 /-1;
+  display: grid;
+  grid-template-columns: repeat(40,1fr);
+  grid-template-rows: repeat(6,1fr);
+  align-items: center;
+}
+
+.ami {
+  grid-area: 1 / 21 / -1 / 41;
+  font-family: 'Poppins', sans-serif;
+  font-weight: normal;
+  font-size: 5vh;
+  letter-spacing: 2px;
+  text-align: start;
+  color: white;
+  padding-left: 2px;
+  justify-self: start;
+  align-self: center;
+}
+
+.question {
+  font-style: italic;
+  grid-area: 1 / 1 / -1 / 21;
+  perspective: 1000px;
+  font-weight: 700;
+  font-size: 5vh;
+  text-align: end; /* Center text horizontally */
+  letter-spacing: 2px;
+  font-family: 'Inter', sans-serif;
+
+}
+
+.flip-word {
+  color: rgb(255, 57, 123);
+  position: absolute;
+  top: -4vh;
+  right: 1.7vh;
+  opacity: 0;
+  transform: rotateX(90deg);
+  animation: none;
+  justify-self: end;
+  align-self: start;
+}
+.text6box{
+  opacity: 0;
+  transform: translateY(25vh);
+  animation: fadeIn 3s ease-out forwards 0.4s, fadeSlideIn 2s ease-out forwards 7s, dimText 2s ease forwards 7s;
+}
+
+.text1, .text2,.photome {
+  opacity: 10;
+  transform: translateY(1000px);
+  animation: fadeSlideIn 2s ease-out forwards 7s;
+
+}
+
+.text3 {
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards 9.4s;
+}
+
+.text4, .text5, .text4box, .text5box{
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards 12s, dimText2 2s ease forwards 15s;
+}
+
+.flip-word:nth-child(1) {
+  animation: flipInOut 1s ease forwards;
+  animation-delay: 0.5s;
+}
+.flip-word:nth-child(2) {
+  animation: flipInOut 1s ease forwards;
+  animation-delay: 1.3s;
+}
+.flip-word:nth-child(3) {
+  animation: flipInOut 1s ease forwards;
+  animation-delay: 2.1s;
+}
+.flip-word:nth-child(4) {
+  animation: flipInOut 1s ease forwards;
+  animation-delay: 2.9s;
+}
+.flip-word:nth-child(5) {
+  animation: flipInOut 1s ease forwards;
+  animation-delay: 3.7s;
+}
+.flip-word:nth-child(6) {
+  animation: flipInOut 1s ease forwards;
+  animation-delay: 4.5s;
+}
+.flip-word:nth-child(7) {
+  animation: flipInStay 1s ease forwards;
+  animation-delay: 5.3s;
+}
+
+.contentkiri {
+  grid-area: 9 / 1 / 27 / 6;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(30, 1fr);
+  z-index: 3;
+  text-align: center;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+#who {
+  display: none;
+}
+
+.label {
+  padding: 5px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px; /* Default untuk semua label */
+  transition: all 0.3s ease;
+}
+
+/* Style SPESIFIK untuk label "Who" (class .siapa-label) */
+.label {
+  background: rgba(255, 255, 255, 0.05  );
+  color: rgba(255, 255, 255, 0.495);
+  backdrop-filter: blur(10px);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Ketika checkbox "Who" aktif */
+#who:checked + .siapa-label {
+  border-radius: 10px 10px 0 0; /* Atas: 10px, Bawah: 0 */
+  background: rgba(255, 255, 255, 0.05  );
+  color: white;
+  font-style: normal;
+}
+
+/* Ketika checkbox "When" aktif */
+#when:checked + .kapan-label {
+  border-radius: 10px 10px 0 0; /* Atas: 10px, Bawah: 0 */
+  background: rgba(255, 255, 255, 0.05  );
+  color: white;
+  font-style: normal;
+}
+
+/* Ketika checkbox "Where" aktif */
+#where:checked + .dimana-label {
+  border-radius: 10px 10px 0 0; /* Atas: 10px, Bawah: 0 */
+  background: rgba(255, 255, 255, 0.05  );
+  color: white;
+  font-style: normal;
+}
+
+#what:checked + .apa-label {
+  border-radius: 10px 10px 0 0; /* Atas: 10px, Bawah: 0 */
+  background: rgba(255, 255, 255, 0.05  );
+  color: white;
+  font-style: normal;
+}
+
+/* Ketika checkbox "When" aktif */
+#why:checked + .mengapa-label {
+  border-radius: 10px 10px 0 0; /* Atas: 10px, Bawah: 0 */
+  background: rgba(255, 255, 255, 0.05  );
+  color: white;
+  font-style: normal;
+}
+
+/* Ketika checkbox "Where" aktif */
+#how:checked + .bagaimana-label {
+  border-radius: 10px 10px 0 0; /* Atas: 10px, Bawah: 0 */
+  background: rgba(255, 255, 255, 0.05  );
+  color: white;
+  font-style: normal;
+}
+
+
+.panel {
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05  );
+  backdrop-filter: blur(15px);
+  color: white;
+  max-height: 0;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 5px;
+  z-index: 1;
+  text-align: left;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
+
+input#who:checked ~ .siapa-panel,
+input#when:checked ~ .kapan-panel,
+input#where:checked ~ .dimana-panel,
+input#what:checked ~ .apa-panel ,
+input#why:checked ~ .mengapa-panel,
+input#how:checked ~ .bagaimana-panel {
+  max-height: 100px;
+  padding: 5px;
+}
+
+/* Grid placements */
+.siapa-label {
+  grid-area: 1 / 4 / 3 / 8;
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards 15s;
+}
+.siapa-panel {
+  grid-area: 3 / 1 / 7 / 11;
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards 15s;
+  
+}
+
+.kapan-label {
+  grid-area: 11 / 4 / 13 / 8;
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards 16s;
+}
+.kapan-panel {
+  grid-area: 13 / 1 / 17 / 11;
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards 16s;
+}
+
+.dimana-label {
+  grid-area: 21 / 4 / 23 / 8;
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards 17s;
+}
+.dimana-panel {
+  grid-area: 23 / 1 / 27 / 11;
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards 17s;
+}
+
+
+.apa-label {
+  grid-area: 1 / 4 / 3 / 8;
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards 18s;
+}
+.apa-panel {
+  grid-area: 3 / 1 / 7 / 11;
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards 18s;
+}
+
+.mengapa-label {
+  grid-area: 11 / 4 / 13 / 8;
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards 19s;
+}
+.mengapa-panel {
+  grid-area: 13 / 1 / 17 / 11;
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards 19s;
+}
+
+.bagaimana-label {
+  grid-area: 21 / 4 / 23 / 8;
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards 20s;
+}
+
+.bagaimana-panel {
+  grid-area: 23 / 1 / 27 / 11;
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards 20s;
+}
+
+.contentkanan{
+  grid-area: 9 / -1 / 27 / -6;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(30, 1fr);
+  z-index: 3;
+  text-align: center;
+}
+

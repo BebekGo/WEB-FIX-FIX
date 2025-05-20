@@ -1,0 +1,203 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body{
+  height: 100%;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: 'LeckerLiOne';
+  src: url(/static/fonts/LeckerliOne-Regular.ttf);
+}
+body {
+  margin:0;
+  padding: 0;
+  line-height: 1.6;
+  word-spacing: 1.4px;
+  font-family: 'Roboto', sans-serif;
+  color: var(--clr-dark);
+  background-color: var(--clr-light);
+}
+
+.container {
+  border: 3px black;
+  border-style: dotted;
+}
+
+.header{
+  background-color: green;
+  border: 3px solid black;
+}
+
+
+.logo{
+  background-color: #fb7185;
+  border: 3px solid black;
+}
+
+.menu{
+  background-color: #ff0000;
+  border: 3px solid black;
+  background-color: transparent;
+  border: transparent;
+}
+
+.bar{
+  background-color: #ff0000;
+  border: 3px solid black;
+  border-radius: 100px;
+}
+  
+/* .content {
+  background-color: #b3b3b3;
+  border: 3px solid black;
+} */
+
+.content-2s {
+  background-color: #28312a;
+  border: 3px solid black;
+}
+
+.content-21 {
+  background-color: #28312a;
+  border: 3px solid black;
+}
+
+.content-22 {
+  background-color: #28312a;
+  border: 3px solid black;
+}
+
+.content-23 {
+  background-color: #28312a;
+  border: 3px solid black;
+}
+
+.content-24 {
+  background-color: #28312a;
+  border: 3px solid black;
+}
+
+.video {
+  background-color: #28312a;
+  border: 3px black;
+}
+
+.boxforicons{
+  background-color: transparent;
+  border: 3px ;
+}
+
+.blur-overlay {
+  background-color: black;
+  border: 3px ;
+}
+
+.photome{
+  background-color: cadetblue;
+  border: 3px solid black;
+}
+
+.text1{
+  background-color: #fb71866c;
+  border: 3px solid black;
+}
+
+.text2{
+  background-color: #d4ff006c;
+  border: 3px solid black;
+}
+
+.text3{
+  background-color: #9000ff77;
+  border: 3px solid black;
+}
+
+.text4{
+  background-color: #ffbf0077;
+  border: 3px solid black;
+}
+
+.text5{
+  background-color: #ffbf0077;
+  border: 3px solid black;
+}
+
+.text4box{
+  background-color: #0084ff77;
+  border: 3px solid black;
+}
+
+.text5box{
+  background-color: #0084ff77;
+  border: 3px solid black;
+}
+
+.text6box{
+  background-color: #ff000077;
+  border: 3px solid black;
+}
+
+.ami{
+  background-color: #00ff2f77;
+  border: 3px solid black;
+}
+
+.question{
+  background-color: #00ff2f77;
+  border: 3px solid black;
+}
+
+.contentkiri{
+  background-color: #ff00ea77;
+  border: 3px solid black;
+}
+
+.siapa{
+  background-color: #ff000077;
+  border: 3px solid black;
+}
+
+.kapan{
+  background-color: #ff000077;
+  border: 3px solid black;
+}
+
+.dimana{
+  background-color: #ff000077;
+  border: 3px solid black;
+}
+
+.contentkanan{
+  background-color: #ff00ea77;
+  border: 3px solid black;
+}
+
+.panel{
+  background-color: #ff00ea77;
+  border: 3px solid black;
+}
+
+.label{
+  background-color: #ff00ea77;
+  border: 3px solid black;
+}
+
+
+.container, .header, .header, .logo, .content, .content-2s, .content-21, .content-22, .content-23, .content-24, .video, .text1, .text2, .text3, .text4, .text5, 
+.text5box,.text4box,.text4, .photome, .text6box, .ami, .question, .contentkiri, .siapa , .kapan, .dimana, .contentkanan, .panel, .label {
+  background-color: transparent;
+  border: 3px transparent;
+}
+
+.text5{
+  background-color: #00000081;
+}
+
+.text4{
+  background-color: #00000081;
+}
